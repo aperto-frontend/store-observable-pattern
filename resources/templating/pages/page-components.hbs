@@ -8,6 +8,16 @@ sortOrder: 02
 	{{#content "main"}}
 		<h3>Place your components here!</h3>
 
+
+{{#with filter-tags-bp}}
+	{{> c-filter-tags}}
+{{/with}}
+
+
+{{#with list-view-bp}}
+	{{> c-list-view}}
+{{/with}}
+
 		{{! @INSERTPOINT :: @ref: component-partial }}
 	{{/content}}
 {{/extend}}

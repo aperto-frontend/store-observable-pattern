@@ -1,0 +1,15 @@
+---
+type: component
+contextData: "filter-tags-bp"
+layout: "lyt-docs"
+publish: false
+---
+
+
+<div class="c-filter-tags{{#if settings.filterTagsContextClass}}--{{settings.filterTagsContextClass}}{{else}}--default{{/if}}{{#if settings.filterTagsClasses}} {{settings.filterTagsClasses}}{{/if}}"
+     data-css="c-filter-tags"
+     data-js-module="filter-tags"{{#if settings.filterTagsJsOptions}}
+     data-js-options='{{stringify settings.filterTagsJsOptions}}'{{/if}}>
+     filter-tags
+     
+</div>

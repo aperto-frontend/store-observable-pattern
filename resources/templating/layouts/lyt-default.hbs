@@ -79,14 +79,21 @@
 		</nav>
 	</header>
 
-	<div class="r-sidebar col-md-4">
-		<h3>Sidebar</h3>
-		{{#block "sidebar"}}{{/block}}
+	<div class="r-sidebar col-md-3">
+		<h3>Filtering</h3>
+		{{#block "sidebar"}}
+			{{> c-filter-tags }}
+		{{/block}}
 	</div>
 
-	<main id="main" class="r-main col-md-4">
+	<main id="main" class="r-main col-md-6">
 		{{#block "main"}}{{/block}}
 	</main>
+
+	<aside class="r-sidebar-right col-md-3">
+		<h3>Metadata</h3>
+	</aside>
+
 </div>
 
 <!-- Scripts

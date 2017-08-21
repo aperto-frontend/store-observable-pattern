@@ -18,6 +18,12 @@ module.exports = {
 			],
 		tasks: 'sync:assets'
 	},
+	hbs: {
+		files: [
+			'<%= paths.src %>/templating/**/js/**/*.hbs'
+		],
+		tasks: 'handlebars'
+	},
 	scss: {
 		files: [
 			'<%= paths.src %>/scss/**/*.scss',

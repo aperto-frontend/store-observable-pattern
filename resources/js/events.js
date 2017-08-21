@@ -11,6 +11,22 @@
 const EVENTS = {};
 
 
+
+/**
+ * Events for FilterTags
+ */
+EVENTS.filterTags = {
+	eventName: 'filterTags:eventName'
+};
+
+
+/**
+ * Events for ListView
+ */
+EVENTS.listView = {
+	eventName: 'listView:eventName'
+};
+
 // @INSERTPOINT :: @ref: js-events
 
 export default EVENTS;

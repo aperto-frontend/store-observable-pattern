@@ -1,0 +1,15 @@
+{
+	"variations": {
+		"default": {
+			"docs": {
+				"variationName": "Default"
+			},
+			"settings": {
+				"listViewContextClass": "default",
+				"listViewClasses": false,
+				"listViewJsOptions": {}
+			},
+			"content": {}
+		}
+	}
+}

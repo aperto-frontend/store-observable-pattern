@@ -1,0 +1,15 @@
+---
+type: component
+contextData: "list-view-bp"
+layout: "lyt-docs"
+publish: false
+---
+
+
+<div class="c-list-view{{#if settings.listViewContextClass}}--{{settings.listViewContextClass}}{{else}}--default{{/if}}{{#if settings.listViewClasses}} {{settings.listViewClasses}}{{/if}}"
+     data-css="c-list-view"
+     data-js-module="list-view"{{#if settings.listViewJsOptions}}
+     data-js-options='{{stringify settings.listViewJsOptions}}'{{/if}}>
+     list-view
+     
+</div>

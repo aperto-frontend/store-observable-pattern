@@ -1,0 +1,15 @@
+{
+	"variations": {
+		"default": {
+			"docs": {
+				"variationName": "Default"
+			},
+			"settings": {
+				"filterTagsContextClass": "default",
+				"filterTagsClasses": false,
+				"filterTagsJsOptions": {}
+			},
+			"content": {}
+		}
+	}
+}
