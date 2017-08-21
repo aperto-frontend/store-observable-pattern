@@ -12,6 +12,9 @@ import FilterTags from '../templating/partials/components/filter-tags/js/filter-
 
 import ListView from '../templating/partials/components/list-view/js/list-view';
 
+
+import Metadata from '../templating/partials/components/metadata/js/metadata';
+
 // @INSERTPOINT :: @ref: js-self-contained-import, @keep: true //
 
 // Initialize modules with Veams
@@ -30,6 +33,14 @@ Veams.modules.register([
 	{
 		namespace: 'list-view',
 		module: ListView
+	}
+
+
+	,
+	// Init Metadata
+	{
+		namespace: 'metadata',
+		module: Metadata
 	}
 
     // @INSERTPOINT :: @ref: js-init-v5, @keep: true //

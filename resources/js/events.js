@@ -27,6 +27,14 @@ EVENTS.listView = {
 	eventName: 'listView:eventName'
 };
 
+
+/**
+ * Events for Metadata
+ */
+EVENTS.metadata = {
+	eventName: 'metadata:eventName'
+};
+
 // @INSERTPOINT :: @ref: js-events
 
 export default EVENTS;
