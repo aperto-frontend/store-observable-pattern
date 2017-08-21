@@ -1,0 +1,39 @@
+/* ===================================================
+Main File For Imports
+=================================================== */
+
+// Helpers
+@import "../bower-components/bourbon/app/assets/stylesheets/bourbon";
+
+// Reset (veams-reset or veams-normalize)
+@import "../../node_modules/veams/src/scss/veams-reset";
+
+// Global Variables and Settings
+@import "global/_vars";
+@import "../../node_modules/veams/src/scss/veams";
+
+// Frameworks 
+@import "../bower-components/include-media/dist/include-media";
+@import "../bower-components/neat/core/neat"; 
+@import "../bower-components/bootstrap-sass/assets/stylesheets/bootstrap"; // You can choose your specific components
+
+// Icons
+@import "icons/**/*";
+
+// Helpers
+@import "helpers/functions/**/*";
+@import "helpers/mixins/**/*";
+
+// Globals
+@import "global/_base";
+@import "global/_get-media";
+
+// Regions in Layouts
+@import "layouts/**/*";
+
+
+
+// @INSERTPOINT :: @ref: scss-self-contained-import, @keep: true //
+
+// Print
+@import "global/_print";

@@ -1,0 +1,74 @@
+{
+    "name": "store-observable-pattern",
+    "description": "Custom project description",
+    "version": "0.0.1",
+    "author": {},
+    "engines": {
+        "node": ">=0.12.0"
+    },
+    "scripts": {
+        "test": "grunt test",
+        "start": "grunt serve",
+        "build": "grunt dist"
+    },
+    "veams": {
+        "configFile": "helpers/config.js"
+    },
+    "dependencies": {
+        "jquery": "^3.1.1",
+        "veams": "^5.0.0-rc20",
+        "picturefill": "^3.0.2",
+        "lazysizes": "^3.0.0-rc4",
+        "handlebars": "^4.0.6"
+    },
+    "devDependencies": {
+        "aliasify": "^2.1.0",
+        "autoprefixer": "^6.7.3",
+        "babelify": "^7.3.0",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-preset-stage-0": "^6.16.0",
+        "chalk": "^1.1.3",
+        "deep-extend": "~0.4.1",
+        "express": "^4.14.1",
+        "glob": "^5.0.14",
+        "lodash": "*",
+        "mangony": "~1.1.7",
+        "marked": "*",
+        "path": "*",
+        "request": "^2.69.0",
+        "gray-matter": "*",
+        "grunt": "~1.0.0",
+        "grunt-browserify": "~5.0.0",
+        "grunt-browser-sync": "~2.2.0",
+        "grunt-chokidar": "~1.0.0",
+        "grunt-combine-mq": "^0.9.0",
+        "grunt-concurrent": "~2.3.0",
+        "grunt-contrib-clean": "~1.0.0",
+        "grunt-contrib-copy": "~1.0.0",
+        "grunt-contrib-cssmin": "~1.0.1",
+        "grunt-contrib-handlebars": "~1.0.0",
+        "grunt-contrib-uglify": "~1.0.1",
+        "grunt-dr-svg-sprites": "^1.0.0",
+        "grunt-express-server": "^0.5.3",
+        "grunt-mangony": "~1.0.2",
+        "grunt-newer": "~1.2.0",
+        "grunt-open": "~0.2.3",
+        "grunt-postcss": "~0.8.0",
+        "grunt-sass": "~2.0.0",
+        "grunt-sass-globber": "^2.0.2",
+        "grunt-sync": "~0.6.2",
+        "grunt-text-replace": "~0.4.0",
+        "grunt-version": "^1.1.1",
+        "jit-grunt": "^0.10.0",
+        "load-grunt-configs": "~1.0.0",
+        "time-grunt": "~1.4.0",
+        "utils-merge": "^1.0.0"
+    },
+    "licenses": [
+        {
+            "type": "MIT"
+        }
+    ],
+    "keywords": []
+}

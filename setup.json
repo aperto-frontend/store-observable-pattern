@@ -1,0 +1,42 @@
+{
+  "generator-veams": {
+    "projectName": "store observable pattern",
+    "projectAuthor": "",
+    "selfContained": true,
+    "taskRunner": [
+      "grunt"
+    ],
+    "templateEngine": "mangony",
+    "mangonyExpress": true,
+    "installExtendedLayout": false,
+    "installPlugin": false,
+    "gulpModules": [],
+    "gruntModules": [
+      "grunt-autoprefixer",
+      "grunt-browser-sync",
+      "grunt-browserify",
+      "grunt-combine-mq",
+      "grunt-contrib-uglify",
+      "grunt-dr-svg-sprites",
+      "grunt-version",
+      "grunt-contrib-handlebars",
+      "grunt-browserify",
+      "grunt-contrib-uglify"
+    ],
+    "features": [
+      "createDevFolder"
+    ],
+    "jsLibs": [
+      "jquery"
+    ],
+    "cssLibs": [
+      "neat",
+      "bootstrap-sass",
+      "include-media"
+    ],
+    "testAndQA": false,
+    "testAndQALibs": [],
+    "veamsPackages": true,
+    "docs": []
+  }
+}
