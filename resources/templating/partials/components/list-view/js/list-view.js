@@ -72,7 +72,7 @@ class ListView extends VeamsComponent {
 		console.log('init ListView');
 		this.http = new VeamsHttp({
 			type: 'json',
-			url: '/giphys.json'
+			url: '/ajax/giphys.json'
 		});
 
 		this.http.get({}).then(data => {
