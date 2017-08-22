@@ -11,7 +11,6 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 import VeamsHttp from 'veams/src/js/services/http';
-import store from "../../../../../js/store";
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
@@ -70,29 +69,29 @@ class ListView extends VeamsComponent {
 	 */
 	initialize() {
 		console.log('init ListView');
+		this.data = {};
 		this.http = new VeamsHttp({
 			type: 'json',
 			url: '/giphys.json'
 		});
 
 		this.http.get({}).then(data => {
-			store.update(data);
-		});
+			this.data = data;
 
-		store.subscribe(this);
+			this.notify();
+			this.render();
+		});
 	}
 
-	next(data) {
-		this.render(data);
+	notify(data) {
+		Veams.Vent.trigger('list:updated', this.data);
 	}
 
 	/**
 	 * Render class
 	 */
-	render(data) {
-		let myData = data || {};
-
-		this.$el.html(this.renderTemplate('c-list-view-tpl', myData));
+	render() {
+		this.$el.html(this.renderTemplate('c-list-view-tpl', this.data));
 
 		return this;
 	}

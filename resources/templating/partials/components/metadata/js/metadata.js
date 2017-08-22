@@ -10,8 +10,6 @@
 // Imports
 import { Veams, App } from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
-import store from "../../../../../js/store";
-
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
@@ -53,17 +51,20 @@ class Metadata extends VeamsComponent {
 	}
 
 	/**
+	* Subscribe handling
+	*/
+	get subscribe() {
+		return {
+			'list:updated': 'render'
+		}
+	}
+
+	/**
 	 * Initialize the view
 	 *
 	 */
 	initialize() {
 		console.log('init Metadata');
-
-		store.subscribe(this);
-	}
-
-	next(data) {
-		this.render(data);
 	}
 
 	/**
