@@ -1,0 +1,15 @@
+---
+type: component
+contextData: "metadata-bp"
+layout: "lyt-docs"
+publish: false
+---
+
+
+<div class="c-metadata{{#if settings.metadataContextClass}}--{{settings.metadataContextClass}}{{else}}--default{{/if}}{{#if settings.metadataClasses}} {{settings.metadataClasses}}{{/if}}"
+     data-css="c-metadata"
+     data-js-module="metadata"{{#if settings.metadataJsOptions}}
+     data-js-options='{{stringify settings.metadataJsOptions}}'{{/if}}>
+     metadata
+
+</div>

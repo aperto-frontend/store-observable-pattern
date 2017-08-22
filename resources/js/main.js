@@ -19,23 +19,17 @@ import Metadata from '../templating/partials/components/metadata/js/metadata';
 
 // Initialize modules with Veams
 Veams.modules.register([
-
-	,
 	// Init FilterTags
 	{
 		namespace: 'filter-tags',
 		module: FilterTags
 	}
-
-
 	,
 	// Init ListView
 	{
 		namespace: 'list-view',
 		module: ListView
 	}
-
-
 	,
 	// Init Metadata
 	{

@@ -75,6 +75,43 @@ this["App"]["Templates"]["c-list-view-tpl"] = Handlebars.template({"1":function(
     + "</div>";
 },"useData":true});
 
+this["App"]["Templates"]["c-metadata"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "--"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataContextClass : stack1), depth0));
+},"3":function(container,depth0,helpers,partials,data) {
+    return "--default";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return " "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataClasses : stack1), depth0));
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "\n     data-js-options='"
+    + container.escapeExpression((helpers.stringify || (depth0 && depth0.stringify) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataJsOptions : stack1),{"name":"stringify","hash":{},"data":data}))
+    + "'";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "---\ntype: component\ncontextData: \"metadata-bp\"\nlayout: \"lyt-docs\"\npublish: false\n---\n\n\n<div class=\"c-metadata"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataContextClass : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataClasses : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\"\n     data-css=\"c-metadata\"\n     data-js-module=\"metadata\""
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.metadataJsOptions : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ">\n     metadata\n\n</div>";
+},"useData":true});
+
+this["App"]["Templates"]["metadata-tpl"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "The total count of gifs is "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.pagination : depth0)) != null ? stack1.total_count : stack1), depth0))
+    + ".";
+},"useData":true});
+
 return this["App"]["Templates"];
 
 };

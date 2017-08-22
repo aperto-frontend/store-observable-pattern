@@ -1,24 +1,24 @@
 /**
- * Description of ListView.
+ * Description of Metadata.
  *
- * @module ListView
+ * @module Metadata
  * @version v0.0.0
  *
  * @author your_name
  */
 
 // Imports
-import {Veams, App} from 'app';
+import { Veams, App } from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
-import VeamsHttp from 'veams/src/js/services/http';
 import store from "../../../../../js/store";
+
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
 const $ = Veams.$;
 const Helpers = Veams.helpers;
 
-class ListView extends VeamsComponent {
+class Metadata extends VeamsComponent {
 	/**
 	 * Constructor for our class
 	 *
@@ -31,10 +31,7 @@ class ListView extends VeamsComponent {
 	constructor(obj) {
 		let options = {};
 
-
 		super(obj, options);
-
-
 	}
 
 	/**
@@ -47,20 +44,11 @@ class ListView extends VeamsComponent {
 	}
 
 	/**
-	 * Event handling
-	 */
+	* Event handling
+	*/
 	get events() {
 		return {
 			// 'click': 'render'
-		}
-	}
-
-	/**
-	 * Subscribe handling
-	 */
-	get subscribe() {
-		return {
-			// '{{Veams.EVENTS.resize}}': 'render'
 		}
 	}
 
@@ -69,15 +57,7 @@ class ListView extends VeamsComponent {
 	 *
 	 */
 	initialize() {
-		console.log('init ListView');
-		this.http = new VeamsHttp({
-			type: 'json',
-			url: '/giphys.json'
-		});
-
-		this.http.get({}).then(data => {
-			store.update(data);
-		});
+		console.log('init Metadata');
 
 		store.subscribe(this);
 	}
@@ -90,12 +70,11 @@ class ListView extends VeamsComponent {
 	 * Render class
 	 */
 	render(data) {
-		let myData = data || {};
+		console.log('render: ', data || {});
 
-		this.$el.html(this.renderTemplate('c-list-view-tpl', myData));
-
+		this.$el.html(this.renderTemplate('metadata-tpl', data || {}));
 		return this;
 	}
 }
 
-export default ListView;
+export default Metadata;

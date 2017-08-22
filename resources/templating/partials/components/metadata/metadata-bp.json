@@ -1,0 +1,15 @@
+{
+	"variations": {
+		"default": {
+			"docs": {
+				"variationName": "Default"
+			},
+			"settings": {
+				"metadataContextClass": "default",
+				"metadataClasses": false,
+				"metadataJsOptions": {}
+			},
+			"content": {}
+		}
+	}
+}
