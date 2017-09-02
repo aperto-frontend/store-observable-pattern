@@ -44,23 +44,10 @@ class AppStore {
 
 		this.broadcast();
 	}
-
-
+	
 	broadcast(data) {
 		this.dataSubject.next(Object.assign({}, this.data));
 	}
-
-	addMockData(data) {
-		this.data = Object.assign(this.data, data);
-		this.broadcast();
-	}
-
-	addSymptoms(symptoms, content) {
-		this.data.activeSymptoms = symptoms;
-		this.data.activeSymptomsContent = content;
-		this.broadcast();
-	}
-
 }
 
 const store = new AppStore();

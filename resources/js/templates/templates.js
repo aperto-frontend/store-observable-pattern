@@ -3,6 +3,35 @@ module.exports = function(Handlebars) {
 this["App"] = this["App"] || {};
 this["App"]["Templates"] = this["App"]["Templates"] || {};
 
+this["App"]["Templates"]["c-edit-bar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "--"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarContextClass : stack1), depth0));
+},"3":function(container,depth0,helpers,partials,data) {
+    return "--default";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return " "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarClasses : stack1), depth0));
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "\n     data-js-options='"
+    + container.escapeExpression((helpers.stringify || (depth0 && depth0.stringify) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarJsOptions : stack1),{"name":"stringify","hash":{},"data":data}))
+    + "'";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "---\ntype: component\ncontextData: \"edit-bar-bp\"\nlayout: \"lyt-docs\"\npublish: false\n---\n\n\n<div class=\"c-edit-bar"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarContextClass : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarClasses : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\"\n     data-css=\"c-edit-bar\"\n     data-js-module=\"edit-bar\""
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.editBarJsOptions : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ">\n	<button data-js-item=\"edit-bar-clear-btn\" class=\"btn btn-lg btn-danger\">Clear List</button>\n</div>\n";
+},"useData":true});
+
 this["App"]["Templates"]["c-filter-tags"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -64,7 +93,7 @@ this["App"]["Templates"]["c-list-view"] = Handlebars.template({"1":function(cont
 this["App"]["Templates"]["c-list-view-tpl"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "		<div class=\"col-xs-6 col-md-6\">\n			<a href=\"#\" class=\"thumbnail\" data--js-item=\"list-view-cta\">\n				<img src=\""
+  return "		<div class=\"col-xs-6 col-md-6\">\n			<a href=\"#\" class=\"thumbnail\" data-js-item=\"list-view-cta\">\n				<img src=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.images : depth0)) != null ? stack1.preview_gif : stack1)) != null ? stack1.url : stack1), depth0))
     + "\" alt=\"Image\">\n			</a>\n		</div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -110,6 +139,35 @@ this["App"]["Templates"]["metadata-tpl"] = Handlebars.template({"compiler":[7,">
   return "The total count of gifs is "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.pagination : depth0)) != null ? stack1.total_count : stack1), depth0))
     + ".";
+},"useData":true});
+
+this["App"]["Templates"]["c-popup"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "--"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupContextClass : stack1), depth0));
+},"3":function(container,depth0,helpers,partials,data) {
+    return "--default";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return " "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupClasses : stack1), depth0));
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "\n     data-js-options='"
+    + container.escapeExpression((helpers.stringify || (depth0 && depth0.stringify) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupJsOptions : stack1),{"name":"stringify","hash":{},"data":data}))
+    + "'";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "---\ntype: component\ncontextData: \"popup-bp\"\nlayout: \"lyt-docs\"\npublish: false\n---\n\n\n<div class=\"c-popup"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupContextClass : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupClasses : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " is-hidden\"\n     data-css=\"c-popup\"\n     data-js-module=\"popup\""
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.settings : depth0)) != null ? stack1.popupJsOptions : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ">\n     popup\n     \n</div>\n";
 },"useData":true});
 
 return this["App"]["Templates"];

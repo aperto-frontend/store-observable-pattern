@@ -25,7 +25,6 @@
 <div class="r-page container">
 
 
-
 	<header id="header" class="r-header">
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -47,7 +46,8 @@
 						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
 						<li><a href="#">Link</a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+							   aria-haspopup="true"
 							   aria-expanded="false">Dropdown <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Action</a></li>
@@ -61,17 +61,8 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-							   aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
+						<li>
+							{{> c-edit-bar }}
 						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -81,9 +72,9 @@
 
 	<div class="r-sidebar col-md-3">
 		<!--<h3>Filtering</h3>-->
-		<!--{{#block "sidebar"}}-->
-			<!--{{> c-filter-tags }}-->
-		<!--{{/block}}-->
+			<!--{{#block "sidebar"}}-->
+		<!--{{> c-filter-tags }}-->
+			<!--{{/block}}-->
 	</div>
 
 	<main id="main" class="r-main col-md-6">
@@ -95,6 +86,8 @@
 
 		{{> c-metadata }}
 	</aside>
+
+	{{> c-popup }}
 
 </div>
 

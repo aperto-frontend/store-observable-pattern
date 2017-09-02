@@ -1,0 +1,15 @@
+---
+type: component
+contextData: "popup-bp"
+layout: "lyt-docs"
+publish: false
+---
+
+
+<div class="c-popup{{#if settings.popupContextClass}}--{{settings.popupContextClass}}{{else}}--default{{/if}}{{#if settings.popupClasses}} {{settings.popupClasses}}{{/if}} is-hidden"
+     data-css="c-popup"
+     data-js-module="popup"{{#if settings.popupJsOptions}}
+     data-js-options='{{stringify settings.popupJsOptions}}'{{/if}}>
+     popup
+     
+</div>
