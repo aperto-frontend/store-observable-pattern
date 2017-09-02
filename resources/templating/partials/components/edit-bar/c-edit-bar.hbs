@@ -1,0 +1,16 @@
+---
+type: component
+contextData: "edit-bar-bp"
+layout: "lyt-docs"
+publish: false
+---
+
+
+<div class="c-edit-bar{{#if
+		settings.editBarContextClass}}--{{settings.editBarContextClass}}{{else}}--default{{/if}}{{#if
+		settings.editBarClasses}} {{settings.editBarClasses}}{{/if}}"
+     data-css="c-edit-bar"
+     data-js-module="edit-bar"{{#if settings.editBarJsOptions}}
+     data-js-options='{{stringify settings.editBarJsOptions}}'{{/if}}>
+	<button data-js-item="edit-bar-clear-btn" class="btn btn-lg btn-danger">Clear List</button>
+</div>

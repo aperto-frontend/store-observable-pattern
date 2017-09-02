@@ -15,6 +15,12 @@ import ListView from '../templating/partials/components/list-view/js/list-view';
 
 import Metadata from '../templating/partials/components/metadata/js/metadata';
 
+
+import EditBar from '../templating/partials/components/edit-bar/js/edit-bar';
+
+
+import Popup from '../templating/partials/components/popup/js/popup';
+
 // @INSERTPOINT :: @ref: js-self-contained-import, @keep: true //
 
 // Initialize modules with Veams
@@ -35,6 +41,22 @@ Veams.modules.register([
 	{
 		namespace: 'metadata',
 		module: Metadata
+	}
+
+
+	,
+	// Init EditBar
+	{
+		namespace: 'edit-bar',
+		module: EditBar
+	}
+
+
+	,
+	// Init Popup
+	{
+		namespace: 'popup',
+		module: Popup
 	}
 
     // @INSERTPOINT :: @ref: js-init-v5, @keep: true //

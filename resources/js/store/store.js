@@ -1,67 +1,96 @@
 import * as _ from 'lodash';
+import Subject from './subject';
 
-class Subject {
-	constructor() {
-		this.observers = [];
+let storeData = {
+	data: {
+		giphys: {}
+	},
+	ui: {
+		overlayOpen: false
 	}
+};
 
-	subscribe(obs) {
-		this.observers.push(obs);
-	}
+let subjects = {
+	data: new Subject(),
+	ui: new Subject()
+};
 
-	unsubscribe(obs) {
-		_.remove(this.observers, el => el === obs)
-	}
-
-	next(data) {
-		this.observers.forEach(obs => obs.next(data));
-	}
+function broadcastAll(subjects) {
+	Object.keys(subjects).forEach(subject => {
+		subject.next(storeData[subject]);
+	})
 }
 
-function broadcast(subjects, storeData) {
-	Object.keys(subjects).forEach(subject => {
-		subject.next(datas[subject]);
-	})
+function broadcast(subject) {
+	subjects[subject].next(storeData[subject]);
 }
 
 class AppStore {
 	constructor() {
-		this.subjects = {
-			data: new Subject(),
-			ui: new Subject()
-		};
-		this.dataSubject = new Subject();
-
-		this.storeData = {
-			data: {},
-			ui: {
-				overlayOpen: false
-			}
-		};
-
 		console.log('Store initialized!');
-
-		// broadcast(this.subjects, this.storeData);
 	}
 
 	subscribe(observer) {
-		Object.keys(this.subjects).forEach(subject => {
-			this.subjects[subject].subscribe(observer);
-			observer.next(this.storeData[subject]);
+		Object.keys(subjects).forEach(subject => {
+			subjects[subject].subscribe(observer);
+			observer.next(storeData[subject]);
 		});
 	}
 
 	unsubscribe(observer) {
-		this.dataSubject.unsubscribe(observer);
+		Object.keys(subjects).forEach(subject => {
+			subjects[subject].unscribe(observer);
+		});
+	}
+
+	select(subtype) {
+		return subjects[subtype];
 	}
 
 	dispatch(action, payload) {
 		switch (action) {
-			case 'GIPHYS_LOADED_ACTION':
-				console.log('action: ', action, payload);
+			case 'DATA_GIPHYS_LOADED_ACTION':
+				storeData.data.giphys = handleGiphysLoaded(storeData.data.giphys, payload);
+				broadcast('data');
+				break;
+
+			case 'DATA_GIPHYS_CLEAR_ACTION':
+				storeData.data.giphys = handeGiphysDeleted(storeData.data.giphys);
+				broadcast('data');
+				break;
+
+
+			case 'UI_OVERLAY_OPEN_ACTION':
+				storeData.ui = handleOverlayOpen(storeData.ui, payload);
+				broadcast('ui');
+				break;
+
+			default:
+				return storeData;
 
 		}
 	}
+}
+
+/**
+ * Reducers
+ */
+function handleGiphysLoaded(state, payload) {
+	return Object.assign({}, state, payload);
+}
+
+function handeGiphysDeleted(state) {
+	let newState = Object.assign({}, state);
+	newState = {};
+
+	return newState;
+}
+
+function handleOverlayOpen(state, payload) {
+	let newState = Object.assign({}, state);
+	newState.overlayOpen = payload;
+
+	return newState;
 }
 
 const store = new AppStore();

@@ -12,7 +12,7 @@ import VeamsMediaQueryHandler from 'veams/src/js/plugins/media-query-handler';
 import EVENTS from './events';
 import Templates from './templates/templates';
 
-import store from './store';
+import store from './store/store';
 
 
 let App = {};
@@ -23,8 +23,6 @@ App.version = "0.0.1";
 
 // Veams
 Veams.onInitialize(() => {
-
-	store.initialize();
 
 	/**
 	* Veams Plugins

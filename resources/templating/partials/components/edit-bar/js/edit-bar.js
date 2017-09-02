@@ -1,7 +1,7 @@
 /**
- * Description of Metadata.
+ * Description of EditBar.
  *
- * @module Metadata
+ * @module EditBar
  * @version v0.0.0
  *
  * @author your_name
@@ -10,15 +10,15 @@
 // Imports
 import { Veams, App } from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
-import store from "../../../../../js/store/store";
-
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
 const $ = Veams.$;
 const Helpers = Veams.helpers;
 
-class Metadata extends VeamsComponent {
+import store from '../../../../../js/store/store';
+
+class EditBar extends VeamsComponent {
 	/**
 	 * Constructor for our class
 	 *
@@ -30,7 +30,7 @@ class Metadata extends VeamsComponent {
 	 */
 	constructor(obj) {
 		let options = {
-			clearBtn: '[data-js-item="metadata-clear-btn"]'
+			clearBtn: '[data-js-item="edit-bar-clear-btn"]'
 		};
 
 		super(obj, options);
@@ -51,7 +51,16 @@ class Metadata extends VeamsComponent {
 	get events() {
 		return {
 			'click {{this.options.clearBtn}}': 'clearList'
-		}
+		};
+	}
+
+	/**
+	* Subscribe handling
+	*/
+	get subscribe() {
+		return {
+			// '{{Veams.EVENTS.resize}}': 'render'
+		};
 	}
 
 	/**
@@ -59,26 +68,19 @@ class Metadata extends VeamsComponent {
 	 *
 	 */
 	initialize() {
-		console.log('init Metadata');
-
-		store.select('data').subscribe(this);
-	}
-
-	next(data) {
-		this.render(data.giphys);
-	}
-
-	clearList() {
-		store.dispatch('DATA_GIPHYS_DELETED_ACTION');
+		console.log('init EditBar');
 	}
 
 	/**
 	 * Render class
 	 */
-	render(data) {
-		this.$el.html(this.renderTemplate('metadata-tpl', data || {}));
+	render() {
 		return this;
+	}
+
+	clearList() {
+		store.dispatch('DATA_GIPHYS_CLEAR_ACTION');
 	}
 }
 
-export default Metadata;
+export default EditBar;

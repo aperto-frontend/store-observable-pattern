@@ -11,12 +11,18 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 import VeamsHttp from 'veams/src/js/services/http';
-import store from "../../../../../js/store";
+import store from "../../../../../js/store/store";
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
 const $ = Veams.$;
 const Helpers = Veams.helpers;
+
+// Services
+const giphyService = new VeamsHttp({
+	type: 'json',
+	url: '/ajax/giphys.json'
+});
 
 class ListView extends VeamsComponent {
 	/**
@@ -29,12 +35,10 @@ class ListView extends VeamsComponent {
 	 * @param {Object} obj.options - options which will be passed in as JSON object
 	 */
 	constructor(obj) {
-		let options = {};
-
-
+		let options = {
+			overlayOpener: '[data-js-item="list-view-cta"]'
+		};
 		super(obj, options);
-
-
 	}
 
 	/**
@@ -46,21 +50,9 @@ class ListView extends VeamsComponent {
 		};
 	}
 
-	/**
-	 * Event handling
-	 */
 	get events() {
 		return {
-			// 'click': 'render'
-		}
-	}
-
-	/**
-	 * Subscribe handling
-	 */
-	get subscribe() {
-		return {
-			// '{{Veams.EVENTS.resize}}': 'render'
+			'click {{this.options.overlayOpener}}': 'showGif'
 		}
 	}
 
@@ -69,21 +61,21 @@ class ListView extends VeamsComponent {
 	 *
 	 */
 	initialize() {
-		console.log('init ListView');
-		this.http = new VeamsHttp({
-			type: 'json',
-			url: '/ajax/giphys.json'
-		});
+		console.log('init listView!');
+		store.select('data').subscribe(this);
 
-		this.http.get({}).then(data => {
-			store.update(data);
-		});
+		giphyService
+			.get({})
+			.then(data => {
+				store.dispatch('DATA_GIPHYS_LOADED_ACTION', data);
+			});
 
-		store.subscribe(this);
 	}
 
 	next(data) {
-		this.render(data);
+		if (data.giphys) {
+			this.render(data.giphys);
+		}
 	}
 
 	/**
@@ -95,6 +87,10 @@ class ListView extends VeamsComponent {
 		this.$el.html(this.renderTemplate('c-list-view-tpl', myData));
 
 		return this;
+	}
+
+	showGif($evt) {
+		store.dispatch('UI_OVERLAY_OPEN_ACTION', true);
 	}
 }
 

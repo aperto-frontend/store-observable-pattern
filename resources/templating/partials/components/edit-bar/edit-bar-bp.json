@@ -1,0 +1,15 @@
+{
+	"variations": {
+		"default": {
+			"docs": {
+				"variationName": "Default"
+			},
+			"settings": {
+				"editBarContextClass": "default",
+				"editBarClasses": false,
+				"editBarJsOptions": {}
+			},
+			"content": {}
+		}
+	}
+}

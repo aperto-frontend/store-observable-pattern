@@ -1,24 +1,23 @@
 /**
- * Description of Metadata.
+ * Description of Popup.
  *
- * @module Metadata
+ * @module Popup
  * @version v0.0.0
  *
  * @author your_name
  */
 
 // Imports
-import { Veams, App } from 'app';
+import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
-import store from "../../../../../js/store/store";
-
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
+import store from '../../../../../js/store/store';
 
 // Variables
 const $ = Veams.$;
 const Helpers = Veams.helpers;
 
-class Metadata extends VeamsComponent {
+class Popup extends VeamsComponent {
 	/**
 	 * Constructor for our class
 	 *
@@ -29,9 +28,7 @@ class Metadata extends VeamsComponent {
 	 * @param {Object} obj.options - options which will be passed in as JSON object
 	 */
 	constructor(obj) {
-		let options = {
-			clearBtn: '[data-js-item="metadata-clear-btn"]'
-		};
+		let options = {};
 
 		super(obj, options);
 	}
@@ -46,12 +43,12 @@ class Metadata extends VeamsComponent {
 	}
 
 	/**
-	* Event handling
-	*/
+	 * Event handling
+	 */
 	get events() {
 		return {
-			'click {{this.options.clearBtn}}': 'clearList'
-		}
+			'click': 'closeOverlay'
+		};
 	}
 
 	/**
@@ -59,26 +56,32 @@ class Metadata extends VeamsComponent {
 	 *
 	 */
 	initialize() {
-		console.log('init Metadata');
+		store.select('ui').subscribe(this);
 
-		store.select('data').subscribe(this);
-	}
-
-	next(data) {
-		this.render(data.giphys);
-	}
-
-	clearList() {
-		store.dispatch('DATA_GIPHYS_DELETED_ACTION');
+		console.log('init Popup');
 	}
 
 	/**
 	 * Render class
 	 */
-	render(data) {
-		this.$el.html(this.renderTemplate('metadata-tpl', data || {}));
+	render() {
+		if (this.open) {
+			this.$el.removeClass('is-hidden');
+		} else {
+			this.$el.addClass('is-hidden');
+		}
 		return this;
+	}
+
+	next(uiData) {
+		this.open = uiData.overlayOpen;
+
+		this.render();
+	}
+
+	closeOverlay() {
+		store.dispatch('UI_OVERLAY_OPEN_ACTION', false);
 	}
 }
 
-export default Metadata;
+export default Popup;

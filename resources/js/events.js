@@ -35,6 +35,22 @@ EVENTS.metadata = {
 	eventName: 'metadata:eventName'
 };
 
+
+/**
+ * Events for EditBar
+ */
+EVENTS.editBar = {
+	eventName: 'editBar:eventName'
+};
+
+
+/**
+ * Events for Popup
+ */
+EVENTS.popup = {
+	eventName: 'popup:eventName'
+};
+
 // @INSERTPOINT :: @ref: js-events
 
 export default EVENTS;
