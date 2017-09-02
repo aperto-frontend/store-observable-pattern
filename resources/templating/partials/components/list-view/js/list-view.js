@@ -17,6 +17,11 @@ import store from "../../../../../js/store";
 // Variables
 const $ = Veams.$;
 const Helpers = Veams.helpers;
+const giphyService = new VeamsHttp({
+	type: 'json',
+	url: '/ajax/giphys.json'
+});
+
 
 class ListView extends VeamsComponent {
 	/**
@@ -56,30 +61,19 @@ class ListView extends VeamsComponent {
 	}
 
 	/**
-	 * Subscribe handling
-	 */
-	get subscribe() {
-		return {
-			// '{{Veams.EVENTS.resize}}': 'render'
-		}
-	}
-
-	/**
 	 * Initialize the view
 	 *
 	 */
 	initialize() {
 		console.log('init ListView');
-		this.http = new VeamsHttp({
-			type: 'json',
-			url: '/ajax/giphys.json'
-		});
+		store.subscribe(this);
 
-		this.http.get({}).then(data => {
+		giphyService
+			.get({})
+			.then(data => {
 			store.update(data);
 		});
 
-		store.subscribe(this);
 	}
 
 	next(data) {

@@ -44,7 +44,7 @@ class AppStore {
 
 		this.broadcast();
 	}
-	
+
 	broadcast(data) {
 		this.dataSubject.next(Object.assign({}, this.data));
 	}
