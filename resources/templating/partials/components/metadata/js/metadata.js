@@ -70,8 +70,6 @@ class Metadata extends VeamsComponent {
 	 * Render class
 	 */
 	render(data) {
-		console.log('render: ', data || {});
-
 		this.$el.html(this.renderTemplate('metadata-tpl', data || {}));
 		return this;
 	}

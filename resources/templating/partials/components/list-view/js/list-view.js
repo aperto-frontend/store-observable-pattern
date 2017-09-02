@@ -77,6 +77,7 @@ class ListView extends VeamsComponent {
 	}
 
 	next(data) {
+
 		this.render(data);
 	}
 
