@@ -11,7 +11,7 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 import VeamsHttp from 'veams/src/js/services/http';
-import store from "../../../../../js/store/store";
+import { store } from "veams-plugin-store";
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
@@ -68,6 +68,7 @@ class ListView extends VeamsComponent {
 			.get({})
 			.then(data => {
 				store.dispatch('DATA_GIPHYS_LOADED_ACTION', data);
+				store.select('data').unsubscribe(this);
 			});
 
 	}

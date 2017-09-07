@@ -1,9 +1,9 @@
 module.exports = function(Handlebars) {
 
-this["App"] = this["App"] || {};
-this["App"]["Templates"] = this["App"]["Templates"] || {};
+window["App"] = window["App"] || {};
+window["App"]["Templates"] = window["App"]["Templates"] || {};
 
-this["App"]["Templates"]["c-edit-bar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-edit-bar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "--"
@@ -32,7 +32,7 @@ this["App"]["Templates"]["c-edit-bar"] = Handlebars.template({"1":function(conta
     + ">\n	<button data-js-item=\"edit-bar-clear-btn\" class=\"btn btn-lg btn-danger\">Clear List</button>\n</div>\n";
 },"useData":true});
 
-this["App"]["Templates"]["c-filter-tags"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-filter-tags"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "--"
@@ -61,7 +61,7 @@ this["App"]["Templates"]["c-filter-tags"] = Handlebars.template({"1":function(co
     + ">\n     filter-tags\n     \n</div>\n";
 },"useData":true});
 
-this["App"]["Templates"]["c-list-view"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-list-view"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "--"
@@ -90,7 +90,7 @@ this["App"]["Templates"]["c-list-view"] = Handlebars.template({"1":function(cont
     + ">\n     list-view\n     \n</div>\n";
 },"useData":true});
 
-this["App"]["Templates"]["c-list-view-tpl"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-list-view-tpl"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "		<div class=\"col-xs-6 col-md-6\">\n			<a href=\"#\" class=\"thumbnail\" data-js-item=\"list-view-cta\">\n				<img src=\""
@@ -104,7 +104,7 @@ this["App"]["Templates"]["c-list-view-tpl"] = Handlebars.template({"1":function(
     + "</div>";
 },"useData":true});
 
-this["App"]["Templates"]["c-metadata"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-metadata"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "--"
@@ -133,7 +133,7 @@ this["App"]["Templates"]["c-metadata"] = Handlebars.template({"1":function(conta
     + ">\n     metadata\n\n</div>";
 },"useData":true});
 
-this["App"]["Templates"]["metadata-tpl"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["metadata-tpl"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "	The total count of gifs is "
@@ -148,7 +148,7 @@ this["App"]["Templates"]["metadata-tpl"] = Handlebars.template({"1":function(con
     + "\n\n<hr>";
 },"useData":true});
 
-this["App"]["Templates"]["c-popup"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+window["App"]["Templates"]["c-popup"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "--"
@@ -177,6 +177,6 @@ this["App"]["Templates"]["c-popup"] = Handlebars.template({"1":function(containe
     + ">\n     popup\n     \n</div>\n";
 },"useData":true});
 
-return this["App"]["Templates"];
+return window["App"]["Templates"];
 
 };

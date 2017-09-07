@@ -16,7 +16,7 @@ import VeamsComponent from 'veams/src/js/common/component'; // Only use that in 
 const $ = Veams.$;
 const Helpers = Veams.helpers;
 
-import store from '../../../../../js/store/store';
+import { store } from 'veams-plugin-store';
 
 class EditBar extends VeamsComponent {
 	/**

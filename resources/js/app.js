@@ -3,17 +3,18 @@ import $ from 'jquery';
 import Veams from 'veams';
 import Handlebars from 'handlebars/runtime';
 
-import VeamsLogger from 'veams/src/js/plugins/logger';
-import VeamsDOM from 'veams/src/js/plugins/dom';
-import VeamsVent from 'veams/src/js/plugins/vent';
-import VeamsModules from 'veams/src/js/plugins/modules';
-import VeamsTemplater from 'veams/src/js/plugins/templater';
-import VeamsMediaQueryHandler from 'veams/src/js/plugins/media-query-handler';
+import VeamsLogger from 'veams-plugin-logger';
+import VeamsDOM from 'veams-plugin-dom';
+import VeamsVent from 'veams-plugin-vent';
+import VeamsModules from 'veams-plugin-modules';
+import VeamsTemplater from 'veams-plugin-templater';
+import VeamsMediaQueryHandler from 'veams-plugin-media-query-handler';
+import VeamsStore from 'veams-plugin-store';
 import EVENTS from './events';
 import Templates from './templates/templates';
-
-import store from './store/store';
-
+import rootReducer from './store/reducer';
+import INITIAL_STATE from './store/app-state';
+import subjects from "./store/subjects";
 
 let App = {};
 App.$ = $;
@@ -25,12 +26,18 @@ App.version = "0.0.1";
 Veams.onInitialize(() => {
 
 	/**
-	* Veams Plugins
-	*/
+	 * Veams Plugins
+	 */
 
 	// Dom Plugin
 	Veams.use(VeamsDOM, {
 		DOM: $
+	});
+
+	Veams.use(VeamsStore, {
+		reducer: rootReducer,
+		state: INITIAL_STATE,
+		subjects: subjects
 	});
 
 	// Vent Plugin

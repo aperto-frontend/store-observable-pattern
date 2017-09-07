@@ -11,7 +11,7 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
-import store from '../../../../../js/store/store';
+import { store } from 'veams-plugin-store';
 
 // Variables
 const $ = Veams.$;
