@@ -1,1 +1,6 @@
-The total count of gifs is {{pagination.total_count}}.
+{{#if pagination.total_count}}
+	The total count of gifs is {{pagination.total_count}}.
+{{else}}
+	There is no gif available!
+{{/if}}
+
