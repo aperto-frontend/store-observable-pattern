@@ -11,7 +11,7 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 import VeamsHttp from 'veams/src/js/services/http';
-import store from "../../../../../js/store/store";
+import store from "../../../../../js/store";
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
 // Variables
@@ -36,9 +36,13 @@ class ListView extends VeamsComponent {
 	 */
 	constructor(obj) {
 		let options = {
-			overlayOpener: '[data-js-item="list-view-cta"]'
+			ctaPopup: '[data-js-item="list-view-cta"]'
 		};
+
+
 		super(obj, options);
+
+
 	}
 
 	/**
@@ -52,7 +56,7 @@ class ListView extends VeamsComponent {
 
 	get events() {
 		return {
-			'click {{this.options.overlayOpener}}': 'showGif'
+			'click {{this.options.ctaPopup}}': 'openPopup'
 		}
 	}
 
@@ -61,21 +65,19 @@ class ListView extends VeamsComponent {
 	 *
 	 */
 	initialize() {
-		console.log('init listView!');
+		console.log('init ListView');
 		store.select('data').subscribe(this);
 
 		giphyService
 			.get({})
 			.then(data => {
-				store.dispatch('DATA_GIPHYS_LOADED_ACTION', data);
-			});
+			store.dispatch('GIPHYS_LOADED', data);
+		});
 
 	}
 
 	next(data) {
-		if (data.giphys) {
-			this.render(data.giphys);
-		}
+		this.render(data);
 	}
 
 	/**
@@ -89,8 +91,8 @@ class ListView extends VeamsComponent {
 		return this;
 	}
 
-	showGif($evt) {
-		store.dispatch('UI_OVERLAY_OPEN_ACTION', true);
+	openPopup() {
+		store.dispatch('OVERLAY_OPEN', true);
 	}
 }
 

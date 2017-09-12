@@ -16,7 +16,7 @@ import VeamsComponent from 'veams/src/js/common/component'; // Only use that in 
 const $ = Veams.$;
 const Helpers = Veams.helpers;
 
-import store from '../../../../../js/store/store';
+import store from '../../../../../js/store';
 
 class EditBar extends VeamsComponent {
 	/**
@@ -79,7 +79,7 @@ class EditBar extends VeamsComponent {
 	}
 
 	clearList() {
-		store.dispatch('DATA_GIPHYS_CLEAR_ACTION');
+		store.dispatch('GIPHYS_CLEARED');
 	}
 }
 

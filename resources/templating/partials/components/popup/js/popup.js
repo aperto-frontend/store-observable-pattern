@@ -11,7 +11,7 @@
 import {Veams, App} from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
-import store from '../../../../../js/store/store';
+import store from '../../../../../js/store';
 
 // Variables
 const $ = Veams.$;
@@ -47,7 +47,7 @@ class Popup extends VeamsComponent {
 	 */
 	get events() {
 		return {
-			'click': 'closeOverlay'
+			'click': 'close'
 		};
 	}
 
@@ -57,10 +57,14 @@ class Popup extends VeamsComponent {
 	 */
 	initialize() {
 		store.select('ui').subscribe(this);
-
 		console.log('init Popup');
 	}
 
+	next(uiState) {
+		this.open = uiState.overlayOpen;
+
+		this.render();
+	}
 	/**
 	 * Render class
 	 */
@@ -73,14 +77,8 @@ class Popup extends VeamsComponent {
 		return this;
 	}
 
-	next(uiData) {
-		this.open = uiData.overlayOpen;
-
-		this.render();
-	}
-
-	closeOverlay() {
-		store.dispatch('UI_OVERLAY_OPEN_ACTION', false);
+	close() {
+		store.dispatch('OVERLAY_OPEN', false);
 	}
 }
 

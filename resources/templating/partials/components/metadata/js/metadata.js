@@ -10,7 +10,7 @@
 // Imports
 import { Veams, App } from 'app';
 import VeamsComponent from 'veams/src/js/common/component'; // Only use that in combination with browserify
-import store from "../../../../../js/store/store";
+import store from "../../../../../js/store";
 
 // import VeamsComponent from 'veams/lib/common/component'; // Can be used in general
 
@@ -65,11 +65,7 @@ class Metadata extends VeamsComponent {
 	}
 
 	next(data) {
-		this.render(data.giphys);
-	}
-
-	clearList() {
-		store.dispatch('DATA_GIPHYS_DELETED_ACTION');
+		this.render(data);
 	}
 
 	/**
